@@ -121,7 +121,7 @@
 
             if (tile.freeCell) { btn.disabled = true; }
             btn.setAttribute("aria-pressed", String(tile.selected));
-            btn.setAttribute("aria-label", tile.freeCell ? "Free space" : tile.prompt);
+            btn.setAttribute("aria-label", tile.freeCell ? "Espaço livre" : tile.prompt);
 
             var labelSpan = document.createElement("span");
             labelSpan.className = "wrap-break-word hyphens-auto";
