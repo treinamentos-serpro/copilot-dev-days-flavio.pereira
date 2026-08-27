@@ -14,7 +14,7 @@
 <body class="h-full">
 
 <div id="lobbyView" class="flex flex-col items-center justify-center min-h-full p-6 lobby-shell">
-    <div class="lobby-panel text-center max-w-sm">
+    <div class="lobby-panel lobby-panel--v3 text-center max-w-sm reveal-seq">
         <div class="brand-block">
             <div class="brand-mark">S</div>
             <div>
@@ -32,6 +32,20 @@
                 <li>Tap a square when you make a match</li>
                 <li>Complete five in a row to win</li>
             </ul>
+        </div>
+
+        <div class="lobby-preview" aria-hidden="true">
+            <div class="lobby-preview-grid">
+                <span class="lobby-preview-cell"></span>
+                <span class="lobby-preview-cell lobby-preview-cell--marked"></span>
+                <span class="lobby-preview-cell"></span>
+                <span class="lobby-preview-cell"></span>
+                <span class="lobby-preview-cell"></span>
+                <span class="lobby-preview-cell"></span>
+                <span class="lobby-preview-cell lobby-preview-cell--marked"></span>
+                <span class="lobby-preview-cell"></span>
+                <span class="lobby-preview-cell"></span>
+            </div>
         </div>
 
         <button onclick="launchGame()" class="primary-button text-white font-semibold text-lg accent-active transition-colors">
