@@ -1,19 +1,19 @@
 :root {
-    --bg-1: #edf3f1;
-    --bg-2: #e4ece8;
-    --panel: rgba(255, 255, 255, 0.72);
-    --surface: #fbfaf8;
-    --text: #1f2d2d;
-    --muted: #587072;
-    --muted-soft: #7c8889;
-    --sage: #a9c1b5;
-    --sage-deep: #355d58;
-    --sand: #f3e5c4;
-    --sand-deep: #ba8e48;
-    --button: linear-gradient(135deg, #2d5055 0%, #4d6f70 100%);
-    --button-shadow: rgba(45, 80, 85, 0.22);
-    --selected: linear-gradient(135deg, #e8f1ec 0%, #d5e5dc 100%);
-    --winner: linear-gradient(135deg, #f4e5bb 0%, #e1d09a 100%);
+    --bg-1: #fff6ea;
+    --bg-2: #f6e8d7;
+    --panel: rgba(255, 252, 248, 0.9);
+    --surface: #fffaf1;
+    --text: #2d261f;
+    --muted: #6c5846;
+    --muted-soft: #8d7562;
+    --sage: #aec6b2;
+    --sage-deep: #2e6254;
+    --sand: #ffd9a0;
+    --sand-deep: #b06a2f;
+    --button: linear-gradient(135deg, #d9652c 0%, #b74a1c 100%);
+    --button-shadow: rgba(154, 71, 30, 0.28);
+    --selected: linear-gradient(135deg, #fcebc6 0%, #f5dca9 100%);
+    --winner: linear-gradient(135deg, #ffe8b5 0%, #f1ca7a 100%);
     --shadow-soft: 0 24px 60px rgba(31, 50, 53, 0.08);
     --shadow-card: 0 18px 36px rgba(24, 37, 39, 0.08);
 }
@@ -30,8 +30,9 @@ body {
     font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     color: var(--text);
     background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.9), transparent 26%),
-        radial-gradient(circle at bottom right, rgba(167,193,180,0.3), transparent 30%),
+        radial-gradient(circle at 8% 15%, rgba(255, 255, 255, 0.85), transparent 30%),
+        radial-gradient(circle at 88% 8%, rgba(255, 188, 104, 0.35), transparent 28%),
+        radial-gradient(circle at 86% 82%, rgba(118, 171, 150, 0.24), transparent 26%),
         linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
     -webkit-tap-highlight-color: transparent;
 }
@@ -172,13 +173,20 @@ button:disabled { cursor: default; }
     padding: 2rem 1.2rem;
 }
 
+.lobby-layout {
+    width: min(100%, 64rem);
+    display: grid;
+    gap: 1rem;
+    align-items: stretch;
+}
+
 .lobby-panel {
-    width: min(100%, 28rem);
-    padding: 1.6rem 1.3rem 1.4rem;
-    border: 1px solid rgba(61, 91, 85, 0.09);
+    width: 100%;
+    padding: 1.7rem 1.3rem 1.4rem;
+    border: 1px solid rgba(142, 105, 76, 0.22);
     border-radius: 2rem;
-    background: rgba(255, 255, 255, 0.58);
-    box-shadow: var(--shadow-soft);
+    background: var(--panel);
+    box-shadow: 0 20px 44px rgba(90, 57, 34, 0.16);
     backdrop-filter: blur(12px);
 }
 
@@ -197,8 +205,8 @@ button:disabled { cursor: default; }
     width: 3.1rem;
     height: 3.1rem;
     border-radius: 1.1rem;
-    background: linear-gradient(135deg, #c7d8d3 0%, #93b1a7 100%);
-    color: var(--sage-deep);
+    background: linear-gradient(135deg, #ffcc8d 0%, #f29d57 100%);
+    color: #5f3519;
     font-size: 1.5rem;
     font-weight: 700;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
@@ -222,8 +230,8 @@ button:disabled { cursor: default; }
 .rules-card {
     padding: 1rem 1rem 0.8rem;
     border-radius: 1.35rem;
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(61, 91, 85, 0.09);
+    background: rgba(255, 249, 242, 0.86);
+    border: 1px solid rgba(142, 105, 76, 0.16);
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
     margin-bottom: 1.2rem;
 }
@@ -251,7 +259,7 @@ button:disabled { cursor: default; }
 
 .rules-card li::before {
     content: "•";
-    color: var(--sage-deep);
+    color: #cb6a2e;
     font-size: 1.2rem;
     line-height: 1;
 }
@@ -265,7 +273,7 @@ button:disabled { cursor: default; }
     width: 100%;
     padding: 1rem 1.2rem;
     background: var(--button);
-    color: #f9fbfb;
+    color: #fff8f3;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.01em;
@@ -274,6 +282,65 @@ button:disabled { cursor: default; }
 
 .primary-button:hover, .ghost-button:hover, .modal-button:hover { transform: translateY(-1px); }
 .primary-button:active, .ghost-button:active, .modal-button:active { transform: translateY(0); }
+.primary-button:focus-visible,
+.ghost-button:focus-visible,
+.modal-button:focus-visible {
+    outline: 3px solid #f2b971;
+    outline-offset: 2px;
+}
+
+.preview-panel {
+    width: 100%;
+    border-radius: 2rem;
+    border: 1px solid rgba(142, 105, 76, 0.22);
+    background: linear-gradient(160deg, rgba(255, 248, 236, 0.95), rgba(255, 235, 207, 0.92));
+    box-shadow: 0 20px 44px rgba(90, 57, 34, 0.14);
+    padding: 1.25rem;
+}
+
+.preview-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    color: var(--muted-soft);
+    margin-bottom: 0.85rem;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.45rem;
+}
+
+.preview-tile {
+    min-height: 3.35rem;
+    border-radius: 0.92rem;
+    border: 1px solid rgba(132, 99, 74, 0.25);
+    padding: 0.42rem;
+    font-size: 0.67rem;
+    line-height: 1.18;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #5a4838;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.preview-tile--marked {
+    background: linear-gradient(135deg, #fbd690, #efad63);
+    border-color: rgba(139, 84, 41, 0.4);
+    color: #55311b;
+    animation: pulse-mark 2.8s ease-in-out infinite;
+}
+
+.preview-tile--free {
+    background: linear-gradient(135deg, #d8efe0, #b7d9c5);
+    border-color: rgba(61, 91, 85, 0.35);
+    color: #235244;
+    font-weight: 700;
+}
 
 .topbar {
     display: flex;
@@ -449,6 +516,19 @@ button:disabled { cursor: default; }
     .lobby-panel { border-radius: 1.5rem; }
     .brand-block { flex-direction: column; text-align: center; }
     .board-tile { min-height: 58px; }
+    .preview-panel { border-radius: 1.5rem; padding: 1rem; }
+    .preview-tile { min-height: 3.05rem; font-size: 0.62rem; }
+}
+
+@media (min-width: 900px) {
+    .lobby-layout {
+        grid-template-columns: minmax(19rem, 1fr) minmax(19rem, 1fr);
+        gap: 1.15rem;
+    }
+    .lobby-panel,
+    .preview-panel {
+        min-height: 100%;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -471,3 +551,8 @@ button:disabled { cursor: default; }
 }
 
 .animate-\[bounce_0\.5s_ease-out\] { animation: bounce 0.5s ease-out; }
+
+@keyframes pulse-mark {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
